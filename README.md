@@ -1,4 +1,5 @@
 # Please Install Angular CLI and Bootstrap
+`npm install @angular/cli@14.2.8`
 `npm i bootstrap --save`
 
 # ChallengeProject
