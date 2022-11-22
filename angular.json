@@ -24,11 +24,7 @@
             ],
             "styles": [
               "src/styles.css",
-<<<<<<< HEAD
-               "node_modules/bootstrap/dist/css/bootstrap.css"
-=======
               "node_modules/bootstrap/dist/css/bootstrap.css"
->>>>>>> bf65bc3 (add file)
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.js"
