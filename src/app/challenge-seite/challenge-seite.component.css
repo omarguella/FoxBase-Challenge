@@ -1,0 +1,40 @@
+h1 {
+
+  font-family: "Angkor", cursive;
+  text-align: center;
+  font-size: 35px;
+  color: rgb(255, 255, 255);
+  text-shadow: rgb(6, 6, 150) 2px 2px 2px;
+  padding: 1%;
+}
+
+.header {
+  background-color: #b32e2e;
+  padding: 20px;
+}
+
+button {
+  margin: 10px;
+}
+
+.btn {
+  --bs-btn-padding-x: 0.25rem;
+  --bs-btn-padding-y: 0.275rem;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.flex-fill {
+  flex: 1 1 auto;
+}
+
+
+
+
+@media screen and (min-width: 768px) {
+  ::ng-deep .container-fluid {
+    min-height: 780px;
+  }
+}

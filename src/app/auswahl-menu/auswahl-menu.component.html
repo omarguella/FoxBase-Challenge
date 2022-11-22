@@ -1,0 +1,138 @@
+<div class="container-fluid">
+  <div class="row">
+
+
+
+    <div class=" text-center">
+      <button id="begin" type="button" class="btn btn-primary" (click)="setBegin()"> AUSWAHL BEGIN
+      </button>
+
+
+
+      <div class=" text-center" *ngIf="getBegin()">
+        <button type=" button" class="btn btn-default" (click)="setAuswahlboolean(this.anwendungsMap,true)">
+          <b>Awnwendungsbereich
+          </b></button>
+
+        <div class=" text-center">
+          <button type="button" class="btn btn-default" (click)=" setAnwendungsBereich('Aussen')"
+            *ngIf=" this.anwendungsMap.get('Aussen')"> Aussen
+          </button>
+          <button type=" button" class="btn btn-default" (click)=" setAnwendungsBereich('Innen')"
+            *ngIf=" this.anwendungsMap.get('Innen')"> Innen
+          </button>
+        </div>
+
+        <div class=" text-center" *ngIf="getFilterProdukt().anwendungsBereich.length!=0">
+
+          <button type="button" class="btn btn-default" (click)="setAuswahlboolean(this.untergrundMap,true)">
+            <b>Untergrund Wählen
+            </b></button>
+
+          <div class=" text-center">
+            <button type="button" class="btn btn-default" (click)=" setUntergrund('Holz')"
+              *ngIf="this.untergrundMap.get('Holz')"> Holz </button>
+
+            <button type="button" class="btn btn-default" (click)=" setUntergrund('Fassade')"
+              *ngIf="this.untergrundMap.get('Fassade')"> Fassade </button>
+
+            <button type="button" class="btn btn-default" (click)=" setUntergrund('Tapete')"
+              *ngIf="this.untergrundMap.get('Tapete')"> Tapete </button>
+
+            <button type="button" class="btn btn-default" (click)=" setUntergrund('Putz')"
+              *ngIf="this.untergrundMap.get('Putz')"> Putz </button>
+          </div>
+
+          <div class=" text-center" *ngIf="getFilterProdukt().untergrund.length !=0">
+
+            <button type="button" class="btn btn-default" (click)=" setDeckkraftArt()"> <b>Kennen Sie Sich mit
+                Deckkraft aus?
+              </b></button>
+
+            <div class=" text-center">
+
+              <button type="button" class="btn btn-default" (click)="this.Deckkraftkennen='Ja'"
+                *ngIf="this.Deckkraftkennen!='Nein'"> Ja </button>
+              <button type="button" class="btn btn-default" (click)=" this.Deckkraftkennen='Nein'"
+                *ngIf="this.Deckkraftkennen!='Ja'"> Nein </button>
+            </div>
+
+            <div class=" text-center" [ngSwitch]="this.Deckkraftkennen">
+              <div *ngSwitchCase="'Ja'" class=" text-center">
+
+                <button type="button" class="btn btn-default"
+                  (click)="this.produktFilter.deckkraft='';setAuswahlboolean(this.deckkraftMap,true)">
+                  <b>Wie
+                    Stark?
+                  </b></button>
+                <div class=" text-center">
+
+                  <button type="button" class="btn btn-default" (click)="setDeckkraft('Minus90')"
+                    *ngIf="this.deckkraftMap.get('Minus90')"> 90</button>
+                  <button type="button" class="btn btn-default" (click)="setDeckkraft('Gleich95')"
+                    *ngIf="this.deckkraftMap.get('Gleich95')"> 95 </button>
+                  <button type="button" class="btn btn-default" (click)="setDeckkraft('Gleich98')"
+                    *ngIf="this.deckkraftMap.get('Gleich98')"> 98 </button>
+                  <button type="button" class="btn btn-default" (click)="setDeckkraft('Plus99')"
+                    *ngIf="this.deckkraftMap.get('Plus99')"> 99,5 </button>
+                </div>
+              </div>
+
+              <div class=" text-center" *ngSwitchCase="'Nein'">
+                <button type="button" class="btn btn-default"
+                  (click)="this.produktFilter.deckkraft='';setAuswahlboolean(this.deckkraftMap,true)">
+                  <b>Welcher
+                    Untergrund?
+                  </b></button>
+                <div class=" text-center">
+
+                  <button type="button" class="btn btn-default" (click)="setDeckkraft('Heller')"
+                    *ngIf="this.deckkraftMap.get('Heller')"> Heller </button>
+                  <button type="button" class="btn btn-default" (click)="setDeckkraft('Dunkler')"
+                    *ngIf="this.deckkraftMap.get('Dunkler')"> Dunkler </button>
+                </div>
+              </div>
+            </div>
+
+            <div class=" text-center" *ngIf="this.produktFilter.deckkraft.length!=0 && this.Deckkraftkennen.length!=0">
+              <div>
+                <button type="button" class="btn btn-default"
+                  (click)="this.produktFilter.farbton=''; setAuswahlboolean(this.farbtonMap,true)">
+                  <b>Wählen Sie
+                    Farbton</b></button>
+                <div>
+                  <button type="button" class="btn btn-default" *ngIf="this.farbtonMap.get('Rot')"
+                    (click)="setFarbton('Rot')">
+                    Rot</button>
+                  <button type="button" class="btn btn-default" *ngIf="this.farbtonMap.get('Blau')"
+                    (click)="setFarbton('Blau')"> Blau </button>
+                  <button type="button" class="btn btn-default" *ngIf="this.farbtonMap.get('Gelb')"
+                    (click)="setFarbton('Gelb')"> Gelb </button>
+                  <button type="button" class="btn btn-default" *ngIf="this.farbtonMap.get('Grun')"
+                    (click)="setFarbton('Grun')"> Grun </button>
+                  <button type="button" class="btn btn-default" *ngIf="this.farbtonMap.get('Schwarz')"
+                    (click)="setFarbton('Schwarz')"> Schwarz </button>
+                  <button type="button" class="btn btn-default" *ngIf="this.farbtonMap.get('Weiss')"
+                    (click)="setFarbton('Weiss')"> Weiss </button>
+                </div>
+
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+
+      </div>
+
+
+    </div>
+    <button *ngIf="getBegin()" class=" text-center" id="end" type="button" class="btn btn-danger"
+      (click)="setDefault()"> CLEAR</button>
+  </div>

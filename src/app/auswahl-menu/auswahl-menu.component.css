@@ -1,0 +1,9 @@
+#end {
+  margin: 20px;
+  width: -moz-available;
+}
+
+#begin {
+  padding: 8px;
+  margin: 12px;
+}
